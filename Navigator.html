@@ -1,0 +1,2661 @@
+<!--
+
+               .                                 .o8       oooo
+             .o8                                "888       `888
+           .o888oo oooo  oooo  ooo. .oo.  .oo.   888oooo.   888  oooo d8b
+             888   `888  `888  `888P"Y88bP"Y88b  d88' `88b  888  `888""8P
+             888    888   888   888   888   888  888   888  888   888
+             888 .  888   888   888   888   888  888   888  888   888    .o.
+             "888"  `V88V"V8P' o888o o888o o888o `Y8bod8P' o888o d888b   Y8P
+
+                                   o8o                           .
+                                   `"'                         .o8
+ooo. .oo.    .oooo.   oooo    ooo oooo   .oooooooo  .oooo.   .o888oo  .ooooo.  oooo d8b
+`888P"Y88b  `P  )88b   `88.  .8'  `888  888' `88b  `P  )88b    888   d88' `88b `888""8P
+ 888   888   .oP"888    `88..8'    888  888   888   .oP"888    888   888   888  888
+ 888   888  d8(  888     `888'     888  `88bod8P'  d8(  888    888 . 888   888  888
+o888o o888o `Y888""8o     `8'     o888o `8oooooo.  `Y888""8o   "888" `Y8bod8P' d888b
+                                        d"     YD
+                                        "Y88888P'
+
+-->
+    <!--[if IE]>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+    <script>
+        if (!window.jQuery)
+        {
+            document.write('<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"><\/script>');
+        }
+    </script>
+    <![endif]-->
+    <!--[if !IE]><!-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT" crossorigin="anonymous"></script>
+    <script>
+        if (!window.jQuery)
+        {
+            document.write('<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT" crossorigin="anonymous"><\/script>');
+        }
+    </script>
+    <!--<![endif]-->
+    <script>
+    $(function(){
+        $(".copy p:has(.tumblr_blog)").wrap("<div class='blockheader footer global_transition'></div>");
+        $(".blockheader p:has(.tumblr_blog)").wrap("<table style='width: 100%;' align='center'><tr><td></td><td style='width: 120px;'><div class='boxarrow'></td></tr></table>");
+        $(".blockheader").next("blockquote").after("<div class='blockend'>");
+        $(".video_player:has([src^='//instagram.com/'])").addClass('instagram-outter');
+        $(".video_player:has([src^='https://www.youtube.com/'])").addClass('youtube-outter');
+        $(".video_player:has([src^='//player.vimeo.com/'])").addClass('vimeo-outter');
+        $(".video_player:has([src^='https://www.dailymotion.com/'])").addClass('dailymotion-outter');
+        $(".video_player:has([src^='https://www.kickstarter.com/'])").addClass('kickstarter-outter');
+        $(".video_player:has(.tumblr_video_container)").addClass('tumblr-video-outter');
+        $(".video_player:has(.vine-embed)").addClass('vine-outter');
+        $(".inner_asker span:first-child:has(a)").css({"display":"block"});
+        $(".inner_asker span:has(a)").removeClass("asker_span");
+        $(".inner_answerer span:first-child:has(a)").css({"display":"block"});
+        $(".inner_answerer span:has(a)").removeClass("answerer_span");
+        $('#following').click(function(){
+            $('#following-avatars').slideToggle('fast', function() {
+                $(".boxarrow1").toggleClass("boxarrow-down"){block:IfShowFollowingCollapsed}.toggleClass("boxarrow-up"){/block:IfShowFollowingCollapsed};
+            });
+        });
+        $('#sidebartweetsheader').click(function(){
+            $(".sidebartweets").slideToggle('fast', function() {
+                $(".boxarrow2").toggleClass("boxarrow-down"){block:IfShowTweetsCollapsed}.toggleClass("boxarrow-up"){/block:IfShowTweetsCollapsed};
+            });
+        });
+        $('#sidebarlikesheader').click(function(){
+            $(".sidebarlikes").slideToggle('fast', function() {
+                $(".boxarrow3").toggleClass("boxarrow-down"){block:IfShowLikesCollapsed}.toggleClass("boxarrow-up"){/block:IfShowLikesCollapsed};
+            });
+        });
+        $(".blockheader").click(function(){
+            $(this).next("blockquote").slideToggle('fast', function() {
+                $(this).prev().find(".boxarrow").toggleClass("boxarrow-down");
+                $(this).next(".blockend").toggleClass("blockmargin");
+            });
+        });
+    });
+    $(function(){
+		var page = window.location.href;
+        if(/ask/.test(page)){
+            $(".disqus-container").css({"display":"none"});
+        }
+        if(/submit/.test(page)){
+            $(".disqus-container").css({"display":"none"});
+        }
+        if(/post/.test(page)){
+            $(".disqus-container").css({"display":"inherit"});
+        }
+    });
+    $(function(){
+        var loc = $('#top_bar').height();
+        var checkExist = setInterval(function() {
+            if ($(".iframe-controls--desktop").length) {
+                clearInterval(checkExist);
+                $(".iframe-controls--desktop").css({"top":loc});
+            }
+            if ($(".tmblr-iframe--unified-controls").length) {
+                clearInterval(checkExist);
+                $(".tmblr-iframe--unified-controls").css({"top":loc});
+            }
+        }, 100);
+        $('#wrapper').css({"top":loc});
+    });
+    $(function(){ 
+        var checkBox = document.getElementById("search-scope");
+        if(checkBox.checked == true) {
+            $(".query").attr('placeholder',"{lang:Search} {lang:All of Tumblr}");
+            document.getElementById('search_form').action='https://www.tumblr.com/search';
+        }
+    });
+    </script>
+    {text:Browser Pony and Music Player Javascript and HTML}
+    {text:Google Fonts Custom HTML}
+    <!-- DEFAULT VARIABLES -->
+    <meta name="color:Background and Element Color" content="#3b627e">
+    <meta name="color:Contrasting Background and Element Color" content="#fff">
+    <meta name="color:Avatar Background Color" content="46,46,46">
+    <meta name="color:Text Color" content="#172732">
+    <meta name="color:Footer Text Color" content="#172732">
+    <meta name="color:Header Text Color" content="#0b1319">
+    <meta name="color:Main Header Text Color" content="#0b1319">
+    <meta name="color:Main Blog Color" content="117,145,164">
+    <meta name="text:Main Blog Color Transparency" content="0.85">
+    <meta name="color:Secondary Blog Color" content="176,192,203">
+    <meta name="text:Secondary Blog Color Transparency" content="0.60">
+    
+    <meta name="font:Title Font" content="Helvetica">
+    <meta name="font:Body Font" content="Helvetica">
+    <meta name="font:Miscellaneous Font" content="Helvetica">
+    
+    <meta name="if:Toggle Sidebar Left or Right" content="0">
+    <meta name="if:Toggle Round Avatars" content="0">
+    <meta name="if:Tile Background Image" content="1">
+    <meta name="if:Toggle Blog Title Background" content="0">
+    
+    <meta name="if:Show Main Header Text" content="1">
+    <meta name="if:Show Main Header Text Glow On Mouseover" content="0">
+    <meta name="if:Show A Frame On Your Avatar" content="0">
+    <meta name="if:Show Top Navigation Bar" content="0">
+    <meta name="if:Show People I Follow" content="1">
+    <meta name="if:Show Following Collapsed" content="0">
+    <meta name="if:Show Tweets In Sidebar" content="0">
+    <meta name="if:Show Tweets Collapsed" content="1">
+    <meta name="if:Show Likes In Sidebar" content="0">
+    <meta name="if:Show Likes Collapsed" content="1">
+    <meta name="if:Show Tags" content="1">
+    <meta name="if:Show Album Art on Audio Posts" content="1">
+    <meta name="if:Enable Jump Pagination" content="0">
+    <meta name="if:Enable Patreon Support" content="0">
+    <meta name="if:Enable Youtube Support" content="0">
+    <meta name="if:Enable Deviantart Support" content="0">
+    
+    <meta name="text:Disqus Shortname" content="">
+    
+    <meta name="text:Patreon Username" content="">
+    <meta name="text:Youtube Username" content="">
+    <meta name="text:Deviantart Username" content="">
+    <meta name="text:Browser Pony and Music Player Javascript and HTML" content="">
+    
+    <meta name="text:Google Fonts Custom HTML" content="">
+    <meta name="text:Google Fonts Custom Title Font CSS" content="">
+    
+    <meta name="image:Header Image" content="">
+    <meta name="image:Background Image" content="">
+    
+    <title>{Title}{block:SearchPage}, {lang:Search results for SearchQuery}{/block:SearchPage}{block:PostSummary}, {PostSummary}{/block:PostSummary}</title>
+    {block:Description}<meta name="description" content="{MetaDescription}">{/block:Description}
+    <link rel="shortcut icon" href="{Favicon}">
+    <link rel="apple-touch-icon" href="{PortraitURL-128}">
+    <link rel="alternate" type="application/rss+xml" href="{RSS}">
+    <style type="text/css">
+        body {
+            background: {color:Background and Element Color} url('{image:Background Image}') center center fixed no-repeat;
+            {block:ifTileBackgroundImage}background-repeat: repeat;{/block:ifTileBackgroundImage}
+            -moz-background-size: cover;
+            -webkit-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            font-family: {font:Body Font};
+        }
+        
+        body div iframe, .tmblr-lightbox {
+            z-index: 100000002 !important;
+        }
+        
+        #browser-ponies iframe {
+            z-index: initial !important;
+        }
+        
+        #x1cpostage_box {
+            z-index: 100000000 !important;
+        }
+        
+        .clear {
+            clear: both;
+            height: 0;
+            overflow: hidden;
+        }
+        
+        .no_select {
+            cursor: pointer;
+            
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        
+        .global_transition {
+            
+            -moz-transition: all 100ms ease-in-out;
+            -webkit-transition: all 100ms ease-in-out;
+            -o-transition: all 100ms ease-in-out;
+            -ms-transition: all 100ms ease-in-out;
+            transition: all 100ms ease-in-out;
+        }
+        
+        .containing_box {
+            -moz-border-radius: 4px;
+            -webkit-border-radius: 4px;
+            border-radius: 4px;
+            
+            -moz-box-shadow: 2px 2px 5px 0 rgba(0,0,0,0.5);
+            -webkit-box-shadow: 2px 2px 5px 0 rgba(0,0,0,0.5);
+            box-shadow: 2px 2px 5px 0 rgba(0,0,0,0.5);
+        }
+        
+        .large_containing_box {
+            -moz-border-radius: 10px;
+            -webkit-border-radius: 10px;
+            border-radius: 10px;
+            
+            -moz-box-shadow: 2px 2px 20px 0 rgba(0,0,0,0.6);
+            -webkit-box-shadow: 2px 2px 20px 0 rgba(0,0,0,0.6);
+            box-shadow: 2px 2px 20px 0 rgba(0,0,0,0.6);
+        }
+        
+        .read_more_container {
+            text-align: center;
+        }
+        
+        a img {
+            border: none;
+        }
+        
+        .avatar,
+        .ask_image,
+        #avatar img,
+        #top_avatar img,
+        #following-avatars.content a img {
+            {block:IfToggleRoundAvatars}border-radius: 50% !important;{/block:IfToggleRoundAvatars}
+        }
+        
+        #top_bar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            min-width: 845px;
+            height: 52px;
+            background: rgb({RGBcolor:Secondary Blog Color});
+            background: rgba({RGBcolor:Secondary Blog Color},{text:Secondary Blog Color Transparency});
+            z-index: 100000001;
+            font-weight: bold;
+            font-family: {font:Miscellaneous Font};
+            font-size: 0.75em;
+            
+            -moz-box-shadow: 2px 2px 20px 0 rgba(0,0,0,0.6);
+            -webkit-box-shadow: 2px 2px 20px 0 rgba(0,0,0,0.6);
+            box-shadow: 2px 2px 20px 0 rgba(0,0,0,0.6);
+        }
+        
+        #top_search_bar {
+            width: 204px;
+        }
+        
+            #top_avatar {
+                    width: 43px;
+                
+            }
+            
+                #top_avatar a {
+                    display: inline-block;
+                    margin: 0 7px;
+                }
+            
+                #top_avatar img {
+                    position: relative;
+                    top: 0;
+                    height: 30px;
+                    width: 30px;
+                    margin: 3px;
+                    border: 1px solid transparent;
+                    vertical-align: middle;
+                    
+                    {block:IfShowAFrameOnYourAvatar}background: rgb({RGBcolor:Avatar Background Color});{/block:IfShowAFrameOnYourAvatar}
+                    {block:IfShowAFrameOnYourAvatar}border: 4px solid {color:Background and Element Color};{/block:IfShowAFrameOnYourAvatar}
+                    {block:IfShowAFrameOnYourAvatar}margin: 0;{/block:IfShowAFrameOnYourAvatar}
+                }
+                
+                #top_avatar a:hover img {
+                    top: -5px;
+                    border: 1px solid {color:Contrasting Background and Element Color};
+                    
+                    -moz-border-radius: 4px;
+                    -webkit-border-radius: 4px;
+                    border-radius: 4px;
+                    
+                    -moz-box-shadow: 4px 4px 5px 0 rgba(0,0,0,0.5);
+                    -webkit-box-shadow: 4px 4px 5px 0 rgba(0,0,0,0.5);
+                    box-shadow: 4px 4px 5px 0 rgba(0,0,0,0.5);
+                    
+                    {block:IfShowAFrameOnYourAvatar}background: rgb({RGBcolor:Avatar Background Color});{/block:IfShowAFrameOnYourAvatar}
+                    {block:IfShowAFrameOnYourAvatar}border: 4px solid {color:Background and Element Color};{/block:IfShowAFrameOnYourAvatar}
+                }
+                
+                #top_avatar a:active img {
+                    -moz-transition-duration: 20ms;
+                    -webkit-transition-duration: 20ms;
+                    -o-transition-duration: 20ms;
+                    -ms-transition-duration: 20ms;
+                    transition-duration: 20ms;
+                    
+                    top: -2px;
+                    border: 1px solid {color:Contrasting Background and Element Color};
+                    
+                    -moz-border-radius: 4px;
+                    -webkit-border-radius: 4px;
+                    border-radius: 4px;
+                    
+                    -moz-box-shadow: 2px 2px 5px 0 rgba(0,0,0,0.5);
+                    -webkit-box-shadow: 2px 2px 5px 0 rgba(0,0,0,0.5);
+                    box-shadow: 2px 2px 5px 0 rgba(0,0,0,0.5);
+                    
+                    {block:IfShowAFrameOnYourAvatar}background: rgb({RGBcolor:Avatar Background Color});{/block:IfShowAFrameOnYourAvatar}
+                    {block:IfShowAFrameOnYourAvatar}border: 4px solid {color:Background and Element Color};{/block:IfShowAFrameOnYourAvatar}
+                }
+        
+                #top_pages a {
+                    display: inline-block;
+                    color: {color:Text Color};
+                    border: 1px solid {color:Background and Element Color};
+                    background: rgb({RGBcolor:Main Blog Color});
+                    background: rgba({RGBcolor:Main Blog Color},{text:Main Blog Color Transparency});
+                    padding: 4px 5px;
+                    margin: 5px 3px 5px 0;
+                    text-decoration: none;
+                }
+                
+                #top_pages a:hover {
+                    background: {color:Background and Element Color};
+                    color: {color:Contrasting Background and Element Color};
+                    border: 1px groove {color:Contrasting Background and Element Color};
+                }
+                    
+            .search {
+                border: 1px solid {color:Background and Element Color};
+                background: rgb({RGBcolor:Main Blog Color});
+                background: rgba({RGBcolor:Main Blog Color},{text:Main Blog Color Transparency});
+                height: 30px;
+                width: 197px;
+                margin: 0;
+            }
+            
+                .query,
+                .submit {
+                    height: 100%;
+                    outline: none;
+                }
+            
+                .query {
+                    -webkit-box-sizing: border-box;
+                    -moz-box-sizing: border-box;
+                    box-sizing: border-box;
+                    border: none;
+                    background: transparent;
+                    color: {color:Text Color};
+                    padding: 0 5px;
+                    width: 100%;
+                    font-style: italic;
+                }
+                            
+                .submit {
+                    display: none;
+                }
+            
+            #top_search_scope {
+                width: 100px;
+                font-size: 11px;
+            }
+            
+                #top_search_scope input,
+                #top_search_scope label {
+                    cursor: pointer;
+                    margin: 2px 0;
+                    vertical-align: middle;
+                }
+                
+                #top_search_scope input:hover + label span,
+                #top_search_scope label:hover span {
+                    text-decoration: underline;
+                }
+        
+        #top_bar:hover {
+            background: rgb({RGBcolor:Main Blog Color});
+            background: rgba({RGBcolor:Main Blog Color},{text:Main Blog Color Transparency});
+        }
+        
+            #top_bar:hover #top_pages a {
+                color: {color:Text Color};
+                border: 1px solid {color:Background and Element Color};
+                background: rgb({RGBcolor:Secondary Blog Color});
+                background: rgba({RGBcolor:Secondary Blog Color},{text:Secondary Blog Color Transparency});
+            }
+            
+            #top_bar:hover #top_pages a:hover {
+                color: {color:Contrasting Background and Element Color};
+                border: 1px groove {color:Contrasting Background and Element Color};
+                background: {color:Background and Element Color};
+            }
+            
+                #top_bar:hover .search {
+                    background: rgb({RGBcolor:Secondary Blog Color});
+                    background: rgba({RGBcolor:Secondary Blog Color},{text:Secondary Blog Color Transparency});
+                }
+                
+                #top_bar:hover .submit:hover,
+                .submit:hover {
+                    background: {color:Background and Element Color};
+                    color: {color:Contrasting Background and Element Color};
+                }
+            
+        .iframe-controls--desktop,
+        .tmblr-iframe--follow-teaser,
+        .tmblr-iframe--unified-controls {
+            z-index: 100000001 !important;
+            height: initial;
+            width: initial;
+        }
+        
+        #wrapper {
+            min-width: 845px;
+            width: 75%;
+            max-width: 1143px;
+            margin: 26px auto;
+            
+            position: relative;
+            font-family: {font:Title Font};
+            z-index: 100000000;
+        }
+        
+            #title {
+                width: 61.3018%;
+                max-width: 700px;
+                margin: 35px 0 35px auto;
+                {block:IfToggleSidebarLeftorRight}margin: 30px 0;{block:IfToggleSidebarLeftorRight}
+                font-size: 50px;
+                {text:Google Fonts Custom Title Font CSS}
+                text-shadow: 1px 2px 10px rgba(0,0,0, 1.0);
+                letter-spacing: -1px;
+                text-align: center;
+            }
+            
+                #title a {
+                    color: {color:Main Header Text Color};
+                    text-decoration: none;
+                }
+                
+                #title a:hover {
+                    {block:ifShowMainHeaderTextGlowOnMouseover}text-shadow: 1px 1px 8px rgba(255,255,255, 0.5);{/block:ifShowMainHeaderTextGlowOnMouseover}
+                }
+                
+                #title img {
+                    display: block;
+                    max-width: 100%;
+                    margin: auto;
+                }
+                
+            .title_frame {
+                background: rgb({RGBcolor:Secondary Blog Color});
+                background: rgba({RGBcolor:Secondary Blog Color},{text:Secondary Blog Color Transparency});
+            }
+            
+            .title_frame:hover {
+                background: rgb({RGBcolor:Main Blog Color});
+                background: rgba({RGBcolor:Main Blog Color},{text:Main Blog Color Transparency});
+            }
+            
+                .title_frame a {
+                    display: block;
+                }
+                
+                #title.title_frame:hover a {
+                    color: {color:Header Text Color};
+                    text-shadow: none;
+                    {block:ifShowMainHeaderTextGlowOnMouseover}text-shadow: 1px 1px 8px rgba(255,255,255, 1.0);{/block:ifShowMainHeaderTextGlowOnMouseover}
+                }
+            
+            #content {
+                width: 61.3018%;
+                max-width: 700px;
+                margin: 0 0 26px;
+                float: right;
+                {block:IfToggleSidebarLeftorRight}float: left;{/block:IfToggleSidebarLeftorRight}
+            }
+            
+                .post {
+                    font-family: {font:Body Font};
+                    padding: 10px;
+                    position: relative;
+                    background: rgb({RGBcolor:Main Blog Color});
+                    background: rgba({RGBcolor:Main Blog Color},{text:Main Blog Color Transparency});
+                    margin-bottom: 40px;
+                    word-wrap: break-word;
+                }
+                    
+                    .media {
+                        text-align: center;
+                        margin: 0 -10px 10px -10px;
+                    }
+                    
+                    .media a img {
+                        position: relative;
+                        width: 100%;
+                    }
+                        
+                        .video_player {
+                            max-width: 100%;
+                            position: relative;
+                            padding-bottom: 100%;
+                            height: 0 !important;
+                        }
+                        
+                        .vine-outter {
+                            padding-bottom: 100%;
+                        }
+                        
+                        .instagram-outter {
+                            padding-bottom: 116%;
+                        }
+                        
+                        .vimeo-outter,
+                        .youtube-outter,
+                        .dailymotion-outter,
+                        .kickstarter-outter,
+                        .tumblr-video-outter {
+                            padding-bottom: 56.25%;
+                        }
+                            
+                            .video_player iframe,
+                            .soundcloud_audio_player {
+                                max-width: 100%;
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                height: 100% !important
+                            }
+                    
+                    .quote {
+                        color: {color:Header Text Color};
+                        font-weight: bold;
+                        padding: 20px;
+                    }
+                    
+                    .quote.short {
+                        font-size: 33px;
+                        line-height: 35px;
+                    }
+                    
+                    .quote.medium {
+                        font-size: 25px;
+                        line-height: 28px;
+                    }
+                    
+                    .quote.long {
+                        font-size: 18px;
+                        line-height: 22px;
+                    }
+                        
+                            .quote_dash{
+                                float: left;
+                            }
+                            
+                            .quote_source{
+                                overflow: hidden;
+                                word-wrap: break-word;
+                            }
+                        
+                    .copy {
+                        color: {color:Text Color};
+                        padding: 10px;
+                    }
+                        
+                        .post .copy a {
+                            color: {color:Text Color};
+                            text-decoration: underline;
+                        }
+                        
+                        .copy p {
+                            margin: 10px 0 0 0;
+                            padding: 0;
+                        }
+                        
+                            .blockheader p .tumblr_blog {
+                                text-decoration: none;
+                            }
+                        
+                        .blockheader {
+                            cursor: pointer;
+                            margin-top: 0 !important;
+                            padding: 2px 10px !important;
+                        }
+                        
+                            .blockheader p {
+                                margin: 0;
+                            }
+                        
+                                .blockheader:hover .boxarrow:before,
+                                .blockheader:hover .boxarrow:after {
+                                    border: 6px solid {color:Contrasting Background and Element Color};
+                                    border-bottom-color: transparent;
+                                    border-left-color: transparent;
+                                }
+                            
+                            .blockheader .boxarrow {
+                                width: 18px;
+                                height: 18px;
+                            }
+                            
+                                .blockheader .boxarrow:before {
+                                    width: 8px;
+                                    height: 8px;
+                                }
+                                
+                                .blockheader .boxarrow:after {
+                                    width: 28px;
+                                    height: 28px;
+                                }
+                                
+                        .blockmargin {
+                            margin-bottom: 10px;
+                        }
+                        
+                        .copy pre {
+                            margin: 10px 0 10px 0;
+                            padding: 10px;
+                            background: #e6e6e6;
+                            font: normal 11px Courier, monospace;
+                            overflow: auto;
+                        }
+                        
+                        .copy > p:first-child {
+                            margin-top: 0;
+                        }
+                        
+                        .copy img {
+                            max-width: 100%;
+                        }
+                    
+                    .audio {
+                        float: left;
+                        padding: 7px;
+                        margin-bottom: 10px;
+                        border: 1px solid {color:Background and Element Color};
+                        background: rgb({RGBcolor:Secondary Blog Color});
+                        background: rgba({RGBcolor:Secondary Blog Color},{text:Secondary Blog Color Transparency});
+                        
+                        -moz-border-radius: 4px;
+                        -webkit-border-radius: 4px;
+                        border-radius: 4px;
+                        
+                        -moz-transition: all 100ms ease-in-out;
+                        -webkit-transition: all 100ms ease-in-out;
+                        -o-transition: all 100ms ease-in-out;
+                        -ms-transition: all 100ms ease-in-out;
+                        transition: all 100ms ease-in-out;
+                    }
+                    
+                    .audio:hover {
+                        color: {color:Contrasting Background and Element Color};
+                        border: 1px solid {color:Contrasting Background and Element Color};
+                        background: {color:Background and Element Color};
+                    }
+                                                        
+                        .player {
+                            float: left;
+                        }
+                        
+                            .audio_player embed {
+                                border: 1px solid #c8c8c8;
+                            }
+                        
+                        .meta {
+                            padding: 8px 13px;
+                            height: 13px;
+                            float: left;
+                            color: {color:Text Color};
+                            font-family: {font:Miscellaneous Font};
+                            font-size: 11px;
+                            text-transform: lowercase;
+                            
+                            -moz-transition: all 100ms ease-in-out;
+                            -webkit-transition: all 100ms ease-in-out;
+                            -o-transition: all 100ms ease-in-out;
+                            -ms-transition: all 100ms ease-in-out;
+                            transition: all 100ms ease-in-out;
+                        }
+                        
+                            .meta a {
+                                color: {color:Text Color};
+                                text-decoration: none;
+                                
+                                -moz-transition: all 100ms ease-in-out;
+                                -webkit-transition: all 100ms ease-in-out;
+                                -o-transition: all 100ms ease-in-out;
+                                -ms-transition: all 100ms ease-in-out;
+                                transition: all 100ms ease-in-out;
+                            }
+                            
+                        .audio:hover .meta,
+                        .audio:hover .meta a {
+                            color: {color:Contrasting Background and Element Color};
+                        }
+                    
+                    .album_art {
+                        margin: 0 -10px 10px -10px;
+                    }
+                    
+                        .album_art img {
+                            text-align: center;
+                            position: relative;
+                            width: 100%;
+                        }
+                    
+                    .question {
+                        padding: 0 16px;
+                        color: {color:Header Text Color};
+                        
+                        -moz-border-radius: 8px;
+                        -webkit-border-radius: 8px;
+                        border-radius: 8px;
+                        
+                        position: relative;
+                        border: 1px solid {color:Background and Element Color};
+                        background: rgb({RGBcolor:Secondary Blog Color});
+                        background: rgba({RGBcolor:Secondary Blog Color},{text:Secondary Blog Color Transparency});
+                    }
+                    
+                    .question a {
+                        color: {color:Header Text Color};
+                        -moz-transition: all 100ms ease-in-out;
+                        -webkit-transition: all 100ms ease-in-out;
+                        -o-transition: all 100ms ease-in-out;
+                        -ms-transition: all 100ms ease-in-out;
+                        transition: all 100ms ease-in-out;
+                    }
+                    
+                    .ask {
+                        margin-bottom: 25px;
+                        padding: 16px;
+                    }
+                    
+                    .answer {
+                        margin-top: 21px;
+                    }
+                    
+                        .answer img {
+                            display: block;
+                            margin: 16px 0;
+                        }
+                    
+                        .answer pre {
+                            word-wrap: break-word;
+                            white-space: -moz-pre-wrap;
+                            white-space: -pre-wrap;
+                            white-space: -o-pre-wrap;
+                            white-space: pre-wrap;
+                        }
+                        
+                        .answer blockquote {
+                            margin: 10px 0 10px 10px;
+                            padding-left: 15px;
+                            color: {color:Header Text Color};
+                            border-left: solid 4px {color:Background and Element Color};
+                            
+                            -moz-transition: all 100ms ease-in-out;
+                            -webkit-transition: all 100ms ease-in-out;
+                            -o-transition: all 100ms ease-in-out;
+                            -ms-transition: all 100ms ease-in-out;
+                            transition: all 100ms ease-in-out;
+                        }
+                        
+                        .nipple-asker {
+                            position: absolute;
+                            bottom: 0;
+                            left: 30px;
+                        }
+                        
+                        .nipple-answerer {
+                            position: absolute;
+                            top: 0;
+                            right: 50px;
+                        }
+                        
+                        .nipple-asker:before,
+                        .nipple-asker:after,
+                        .nipple-answerer:before,
+                        .nipple-answerer:after {
+                            position:absolute;
+                            display:block;
+                            content:"";
+                            border: 10px solid transparent;
+                        }
+                        
+                        .nipple:before {
+                            left: -2px;
+                            border: 12px solid transparent;
+                            
+                            -moz-transition: all 100ms ease-in-out;
+                            -webkit-transition: all 100ms ease-in-out;
+                            -o-transition: all 100ms ease-in-out;
+                            -ms-transition: all 100ms ease-in-out;
+                            transition: all 100ms ease-in-out;
+                        }
+                        
+                        .nipple-asker:before {
+                            left: -2px;
+                            border-top-color: {color:Background and Element Color};
+                        }
+                        
+                        .nipple-answerer:before {
+                            bottom: 0;
+                            border-bottom-color: {color:Background and Element Color};
+                        }
+                        
+                        .nipple:after {
+                            -moz-transition: all 100ms ease-in-out;
+                            -webkit-transition: all 100ms ease-in-out;
+                            -o-transition: all 100ms ease-in-out;
+                            -ms-transition: all 100ms ease-in-out;
+                            transition: all 100ms ease-in-out;
+                        }
+                        
+                        .nipple-asker:after {
+                            top: 0;
+                            border-top-color: rgba({RGBcolor:Secondary Blog Color},{text:Secondary Blog Color Transparency});
+                        }
+                        
+                        .nipple-answerer:after {
+                            bottom: 0;
+                            border-bottom-color: rgba({RGBcolor:Secondary Blog Color},{text:Secondary Blog Color Transparency});
+                        }
+                        
+                    .question:hover {
+                        color: {color:Contrasting Background and Element Color};
+                        border: 1px solid {color:Contrasting Background and Element Color};
+                        background: {color:Background and Element Color};
+                    }
+                    
+                    .question:hover a {
+                        color: {color:Contrasting Background and Element Color};
+                    }
+                    
+                    .question:hover blockquote {
+                        color: {color:Contrasting Background and Element Color};
+                        border-color: {color:Contrasting Background and Element Color};
+                    }
+                        
+                        .question:hover .nipple-asker:before {
+                            border-top-color: {color:Contrasting Background and Element Color};
+                        }
+                        
+                        .question:hover .nipple-answerer:before {
+                            border-bottom-color: {color:Contrasting Background and Element Color};
+                        }
+                        
+                        .question:hover .nipple-asker:after {
+                            border-top-color: {color:Background and Element Color};
+                        }
+                        
+                        .question:hover .nipple-answerer:after {
+                            border-bottom-color: {color:Background and Element Color};
+                        }
+                        
+                    .inner_asker span a.asker,
+                    .inner_answerer span a.answerer,
+                    .asker_span,
+                    .answerer_span {
+                        color: {color:Header Text Color};
+                        padding: 3px;
+                        
+                        -moz-transition: all 100ms ease-in-out;
+                        -webkit-transition: all 100ms ease-in-out;
+                        -o-transition: all 100ms ease-in-out;
+                        -ms-transition: all 100ms ease-in-out;
+                        transition: all 100ms ease-in-out;
+                    }
+                    
+                    .inner_asker span:first-child,
+                    .inner_answerer span:first-child {
+                        color: transparent;
+                        display: none;
+                    }
+                    
+                    .inner_asker span:first-child  a,
+                    .inner_answerer span:first-child a {
+                        position: absolute;
+                        display: block;
+                        color: transparent;
+                        top: 0;
+                        left: 0;
+                        padding: 0;
+                        height: 38px;
+                        width: 100%;
+                    }
+                    
+                        .ask_image {
+                            vertical-align: middle;
+                            height: 30px;
+                            width: 30px;
+                            border: 1px solid {color:Background and Element Color};
+                            
+                            -moz-border-radius: 4px;
+                            -webkit-border-radius: 4px;
+                            border-radius: 4px;
+                        }
+                        
+                        .inner_asker {
+                            margin-left: 22px;
+                        }
+                        
+                            .asker_image {
+                                margin: 0 9px 0 0;
+                            }
+                            
+                        .inner_answerer {
+                            margin-right: 22px;
+                        }
+                        
+                            .answerer_image {
+                                margin: 0 0 0 9px;
+                            }
+                            
+                        .ask_container {
+                            font-weight: bold;
+                        }
+                        
+                            .ask_container div {
+                                position: relative;
+                                padding: 2px;
+                                border: 1px solid {color:Background and Element Color};
+                                background: rgb({RGBcolor:Secondary Blog Color});
+                                background: rgba({RGBcolor:Secondary Blog Color},{text:Secondary Blog Color Transparency});
+                                
+                                -moz-border-radius: 4px;
+                                -webkit-border-radius: 4px;
+                                border-radius: 4px;
+                            }
+                        
+                        .ask_container.asker {
+                            float: left;
+                            margin: 0 5px 4px 0;
+                        }
+                        
+                        .ask_container.answerer {
+                            float: right;
+                            margin: 0 0 4px 5px;
+                        }
+                        
+                        .inner_asker:hover span:first-child .asker,
+                        .inner_answerer:hover span:first-child .answerer {
+                            color: transparent;
+                        }
+                        
+                        .inner_asker:hover,
+                        .inner_answerer:hover {
+                            border: 1px solid {color:Contrasting Background and Element Color};
+                            background: {color:Background and Element Color};
+                        }
+                        
+                            .inner_asker:hover .asker,
+                            .inner_asker:hover .asker_span,
+                            .inner_answerer:hover .answerer,
+                            .inner_answerer:hover .answerer_span {
+                                color: {color:Contrasting Background and Element Color};
+                            }
+                        
+                            .inner_asker:hover .asker_image,
+                            .inner_answerer:hover .answerer_image {
+                                border: 1px solid {color:Contrasting Background and Element Color};
+                            }
+                        
+                    .question_copy {
+                        margin-top: 25px;
+                    }
+                        
+                    .title {
+                        color: {color:Header Text Color};
+                        font-size: 1.1em;
+                        font-weight: bold;
+                        text-align: center;
+                        padding: 10px;
+                    }
+                    
+                    .outter_chat {
+                        border: 1px solid transparent;
+                        margin: 10px 0;
+                        
+                        -moz-border-radius: 4px;
+                        -webkit-border-radius: 4px;
+                        border-radius: 4px;
+                    }
+                    
+                    .outter_chat:hover {
+                        border: 1px solid {color:Background and Element Color};
+                    }
+                    
+                        .chat {
+                            border-left: 5px solid rgb({RGBcolor:Secondary Blog Color});
+                            border-left: 5px solid rgba({RGBcolor:Secondary Blog Color},{text:Secondary Blog Color Transparency});
+                            margin: 2px;
+                            font-size: 14px;
+                            
+                            -moz-border-radius: 4px;
+                            -webkit-border-radius: 4px;
+                            border-radius: 4px;
+                        }
+                        
+                        .outter_chat:hover .chat {
+                            border-left: 5px solid {color:Background and Element Color};
+                        }
+                                        
+                            .lines {
+                                margin-left: 1px;
+                            }
+                        
+                                .line {
+                                    border: 1px solid {color:Background and Element Color};
+                                }
+                                
+                                .line {
+                                    border: 1px solid transparent;
+                                    background: rgb({RGBcolor:Secondary Blog Color});
+                                    background: rgba({RGBcolor:Secondary Blog Color},{text:Secondary Blog Color Transparency});
+                                    color: {color:Text Color};
+                                    margin-bottom: 1px;
+                                    padding: 5px;
+                                    
+                                    -moz-border-radius: 4px;
+                                    -webkit-border-radius: 4px;
+                                    border-radius: 4px;
+                                }
+                            
+                                .line:hover {
+                                    color: {color:Contrasting Background and Element Color};
+                                    background: {color:Background and Element Color};
+                                }
+                        
+                        .link {
+                            width: 100%;
+                            font-size: 16px;
+                            font-weight: bold;
+                            text-align: center;
+                            line-height: 25px;
+                        }
+                            
+                            .link td {
+                                border: 1px solid {color:Background and Element Color};
+                                background: rgb({RGBcolor:Secondary Blog Color});
+                                background: rgba({RGBcolor:Secondary Blog Color},{text:Secondary Blog Color Transparency});
+                            }
+                             
+                            .link_text {
+                                -moz-border-radius: 4px;
+                                -webkit-border-radius: 4px;
+                                border-radius: 4px;
+                            }
+                                
+                            .link_text_image {
+                                border-right: none !important;
+                                
+                                -moz-border-radius: 4px 0 0 4px;
+                                -webkit-border-radius: 4px 0 0 4px;
+                                border-radius: 4px 0 0 4px;
+                            }
+                            
+                            .link a {
+                                display: inline-block;
+                                color: {color:Header Text Color};
+                            }
+                            
+                            .link a:hover td {
+                                color: {color:Contrasting Background and Element Color};
+                                border: 1px solid {color:Contrasting Background and Element Color};
+                                background: {color:Background and Element Color};
+                            }
+                            
+                            .link span {
+                                display: inline-block;
+                                margin: 30px;
+                            }
+                            
+                            .link_image {
+                                width: 25%;
+                                border-left: none !important;
+                            }
+                            
+                            .link_image,
+                            .link img {
+                                -moz-border--radius: 0 4px 4px 0;
+                                -webkit-border-radius: 0 4px 4px 0;
+                                border-radius: 0 4px 4px 0;
+                            }
+                            
+                            .link img {
+                                width: 100%;
+                                vertical-align: middle;
+                            }
+                    
+                    .footer {
+                        position: relative;
+                        font-family: {font:Miscellaneous Font};
+                        font-size: 0.75em;
+                        color: {color:Footer Text Color};
+                        padding: 5px 10px;
+                        margin-top: 10px;
+                        border: 1px solid {color:Background and Element Color};
+                        background: rgb({RGBcolor:Secondary Blog Color});
+                        background: rgba({RGBcolor:Secondary Blog Color},{text:Secondary Blog Color Transparency});
+                        
+                        -moz-border-radius: 4px;
+                        -webkit-border-radius: 4px;
+                        border-radius: 4px;
+                    }
+                    
+                    .footer a {
+                        font-weight: bold;
+                        color: {color:Footer Text Color};
+                        
+                        -moz-transition: all 100ms ease-in-out;
+                        -webkit-transition: all 100ms ease-in-out;
+                        -o-transition: all 100ms ease-in-out;
+                        -ms-transition: all 100ms ease-in-out;
+                        transition: all 100ms ease-in-out;
+                    }
+                        
+                        .footer:hover,
+                        .footer:hover .tag_box {
+                            color: {color:Contrasting Background and Element Color};
+                            border: 1px solid {color:Contrasting Background and Element Color};
+                            background: {color:Background and Element Color};
+                        }
+                        
+                        .footer:hover .tag_box {
+                            background: transparent;
+                        }
+                        
+                            .footer:hover .tag_box .tagged,
+                            .footer:hover .tag_box .tags,
+                            .footer:hover .tag_box .tags .tag-commas {
+                                 color: {color:Contrasting Background and Element Color};
+                            }
+                        
+                        .footer:hover a {
+                            color: {color:Contrasting Background and Element Color};
+                        }
+                        
+                        .footer a:hover {
+                            text-decoration: underline;
+                        }
+                        
+                        .info_box {
+                            max-width: 83%;
+                            float: left;
+                            clear: left;
+                        }
+                        
+                            .info_box a {
+                                font-weight: bold;
+                            }
+                        
+                        .like_and_reblog_buttons {
+                            float: right;
+                            padding-left: 5px;
+                        }
+                        
+                        .permalink {
+                            font-weight: bold;
+                            text-align: center;
+                        }
+                        
+                        .tag_box {
+                            font-family: {font:Miscellaneous Font};
+                            font-size: 0.75em;
+                            padding: 5px 10px;
+                            border: 1px solid {color:Background and Element Color};
+                            
+                            -moz-border-radius: 4px;
+                            -webkit-border-radius: 4px;
+                            border-radius: 4px;
+                        }
+                        
+                        .tagged {
+                            float: left;
+                            width: 4em;
+                            height: 1em;
+                        }
+                            
+                        .tags {
+                            margin-left: 4.25em;
+                        }
+                        
+                            .tags a {
+                                word-wrap: break-word;
+                            }
+                            
+                            .tag-commas,
+                            .tagged,
+                            .tags {
+                                color: {color:Footer Text Color};
+                            }
+                            
+                            .tag-commas:last-child {
+                                display: none;
+                            }
+                        
+                        .post a {
+                            color: {color:Text Color};
+                            text-decoration: none;
+                        }
+                        
+                            .copy blockquote {
+                                margin: 0 0 10px 7px;
+                                padding: 3px 0 13px 12px;
+                                border-left: solid 4px {color:Background and Element Color};
+                            }
+                            
+                                .copy blockquote blockquote,
+                                .copy blockquote blockquote blockquote blockquote,
+                                .copy blockquote blockquote blockquote blockquote blockquote blockquote {
+                                    border-left: solid 4px {color:Header Text Color};
+                                }
+                                
+                                    .copy blockquote blockquote blockquote,
+                                    .copy blockquote blockquote blockquote blockquote blockquote {
+                                        border-left: solid 4px {color:Background and Element Color};
+                                    }
+                        
+                        .navigation {
+                            font-size: 0;
+                            text-align: center;
+                            padding: 15px;
+                            font-family: {font:Body Font};
+                            cursor: default;
+                        }
+                        
+                        .navigation a {
+                            font-weight: bold;
+                        }
+                        
+                            .navblock,
+                            .navigation em {
+								font-size: 16px;
+                                display: inline-block;
+                                color: {color:Header Text Color};
+                                padding: 4px 0.15em;
+                                margin: 4px 2px;
+                                background: rgb({RGBcolor:Main Blog Color});
+                                background: rgba({RGBcolor:Main Blog Color},{text:Main Blog Color Transparency});
+                                min-width: 56px;
+                                border: 1px solid {color:Background and Element Color};
+                                
+                                -moz-border-radius: 4px;
+                                -webkit-border-radius: 4px;
+                                border-radius: 4px;
+                                
+                                -moz-box-shadow: 2px 2px 20px 0 rgba(0,0,0,0.6);
+                                -webkit-box-shadow: 2px 2px 20px 0 rgba(0,0,0,0.6);
+                                box-shadow: 2px 2px 20px 0 rgba(0,0,0,0.6);
+                            }
+                        
+                            .navigation em {
+                                padding: 4px 8px;
+                            }
+                            
+                            .navigation form {
+                                display: inline-block;
+                            }
+                            
+                                .tag:before,
+                                .search_query:before {
+                                    content: open-quote;
+                                }
+                                
+                                .tag:after,
+                                .search_query:after {
+                                    content: close-quote;
+                                }
+                            
+                            .navbuttons:hover {
+                                margin: 1px 2px;
+                                border-top: 4px double {color:Background and Element Color};
+                                border-bottom: 4px double {color:Background and Element Color};
+                            }
+                            
+                            .navbuttons:active {
+                                margin: 1px 2px;
+                                color: {color:Contrasting Background and Element Color};
+                                background: {color:Background and Element Color};
+                                border: solid {color:Contrasting Background and Element Color};
+                                border-width: 4px 1px;
+                            }
+                            
+                            .current_page {
+                                min-width: 55px;
+                                width: 55px;
+                                height: 49px;
+                                padding: 3px 0;
+                                border-radius: 50%;
+                                text-align: center;
+                                border: 4px double {color:Background and Element Color};
+                                outline: none;
+                            }
+                            
+                                .inner_navbuttons {
+                                    min-width: 120px;
+                                }
+                            
+                                .outter_navbuttons {
+                                    min-width: 75px;
+                                }
+                                    
+                                        .arrow {
+                                            display: inline-block;
+                                            border: solid transparent;
+                                            border-width: 0.4em 0;
+                                        }
+                                    
+                                        .navbuttons:active .arrow {
+                                            border-left-color: {color:Contrasting Background and Element Color};
+                                            border-right-color: {color:Contrasting Background and Element Color};
+                                        }
+                                    
+                                    .next-nav .arrow,
+                                    .last-nav .arrow {
+                                        margin-left: 0.5em;
+	                                    border-left: 0.45em solid {color:Header Text Color};
+                                    }
+                                    
+                                    .first-nav .arrow,
+                                    .previous-nav .arrow {
+                                        margin-right: 0.5em;
+	                                    border-right: 0.5em solid {color:Header Text Color};
+                                    }
+                                    
+                                        .wall {
+                                            display: inline-block;
+                                            border: solid {color:Header Text Color};
+                                            border-width: 0.4em 0;
+                                        }
+                                        
+                                        .navbuttons:active .wall {
+	                                        border-color: {color:Contrasting Background and Element Color};
+                                        }
+                                    
+                                    .last-nav .wall {
+	                                    border-left: 0.15em solid {color:Header Text Color};
+                                    }
+                                    
+                                    .first-nav .wall {
+	                                    border-right: 0.15em solid {color:Header Text Color};
+                                    }
+                            
+                            .notecontainer {
+                                font-family: {font:Miscellaneous Font};
+                                font-size: 0.75em;
+                                color: {color:Footer Text Color};
+                                margin-top: 10px;
+                                border: 1px solid {color:Background and Element Color};
+                                background: rgb({RGBcolor:Secondary Blog Color});
+                                background: rgba({RGBcolor:Secondary Blog Color},{text:Secondary Blog Color Transparency});
+                                
+                                -moz-border-radius: 4px;
+                                -webkit-border-radius: 4px;
+                                border-radius: 4px;
+                            }
+                            
+                                    .notecontainer a {
+                                        font-weight: bold;
+                                                
+                                        -moz-transition: all 100ms ease-in-out;
+                                        -webkit-transition: all 100ms ease-in-out;
+                                        -o-transition: all 100ms ease-in-out;
+                                        -ms-transition: all 100ms ease-in-out;
+                                        transition: all 100ms ease-in-out;
+                                    }
+                                    
+                                    .note:hover a,
+                                    .note:hover .action,
+                                    .notes_loading:hover {
+                                        color: {color:Contrasting Background and Element Color};
+                                    }
+                                    
+                                    .notecontainer a:hover {
+                                        text-decoration: underline;
+                                    }
+                                    
+                                    .notes {
+                                        margin: 0;
+                                        padding: 0;
+                                        list-style-type: none;
+                                    }
+                                    
+                                        .note {
+                                            padding: 10px;
+                                            margin: 3px;
+                                            border: 1px solid {color:Background and Element Color};
+                                            
+                                            -moz-border-radius: 4px;
+                                            -webkit-border-radius: 4px;
+                                            border-radius: 4px;
+                                            
+                                            -moz-transition: all 100ms ease-in-out;
+                                            -webkit-transition: all 100ms ease-in-out;
+                                            -o-transition: all 100ms ease-in-out;
+                                            -ms-transition: all 100ms ease-in-out;
+                                            transition: all 100ms ease-in-out;
+                                        }
+                                        
+                                        .note:hover {
+                                            margin: 3px;
+                                            background: {color:Background and Element Color};
+                                        }
+
+                                            .note a.avatar_frame {
+                                                display: inline-block;
+                                            }
+
+                                            .note .avatar {
+                                                vertical-align: -13px;
+                                                margin-right: 10px;
+                                                width: 30px;
+                                                height: 30px;
+                                                bottom: 0;
+                                                border: 1px solid {color:Background and Element Color};
+                                                
+                                                -moz-border-radius: 4px;
+                                                -webkit-border-radius: 4px;
+                                                border-radius: 4px;
+                                                
+                                                -moz-transition: all 100ms linear;
+                                                -webkit-transition: all 100ms linear;
+                                                -o-transition: all 100ms linear;
+                                                -ms-transition: all 100ms linear;
+                                                transition: all 100ms linear;
+                                            }
+                                            
+                                            .note a:hover .avatar {
+                                                position: relative;
+                                                bottom: 5px;
+                                                
+                                                -moz-box-shadow: 4px 4px 5px 0 rgba(0,0,0,0.5);
+                                                -webkit-box-shadow: 4px 4px 5px 0 rgba(0,0,0,0.5);
+                                                box-shadow: 4px 4px 5px 0 rgba(0,0,0,0.5);
+                                            }
+                                            
+                                            .note a:active .avatar {
+                                                -moz-transition-duration: 20ms;
+                                                -webkit-transition-duration: 20ms;
+                                                -o-transition-duration: 20ms;
+                                                -ms-transition-duration: 20ms;
+                                                transition-duration: 20ms;
+                                                
+                                                position: relative;
+                                                bottom: 3px;
+                                                border: 1px solid {color:Contrasting Background and Element Color};
+                                                
+                                                -moz-box-shadow: 2px 2px 5px 0 rgba(0,0,0,0.5);
+                                                -webkit-box-shadow: 2px 2px 5px 0 rgba(0,0,0,0.5);
+                                                box-shadow: 2px 2px 5px 0 rgba(0,0,0,0.5);
+                                            }
+                                            
+                                            .note:hover .avatar {
+                                                border: 1px solid {color:Contrasting Background and Element Color};
+                                            }
+                                            
+                                            .note .action {
+                                                color: {color:Footer Text Color};
+                                                font-weight: normal;
+                                                
+                                                -moz-transition: all 100ms ease-in-out;
+                                                -webkit-transition: all 100ms ease-in-out;
+                                                -o-transition: all 100ms ease-in-out;
+                                                -ms-transition: all 100ms ease-in-out;
+                                                transition: all 100ms ease-in-out;
+                                            }
+                                            
+                                            .answer_content {
+                                                font-weight: normal;
+                                            }
+                                            
+                                            .note blockquote {
+                                                border-left: 2px solid {color:Background and Element Color};
+                                                padding: 4px 10px;
+                                                margin: 10px 0 0 25px;
+                                                
+                                                -moz-transition: all 100ms ease-in-out;
+                                                -webkit-transition: all 100ms ease-in-out;
+                                                -o-transition: all 100ms ease-in-out;
+                                                -ms-transition: all 100ms ease-in-out;
+                                                transition: all 100ms ease-in-out;
+                                            }
+                                            
+                                            .note:hover blockquote {
+                                                border-left: 2px solid {color:Contrasting Background and Element Color};
+                                            }
+                                                
+                                        .note.more_notes_link_container {
+                                            padding: 0;
+                                        }
+                                    
+                                            .more_notes_link {
+                                                display: block;
+                                                position: relative;
+                                                width: 100%;
+                                                height: 50px;
+                                                padding: 10px 0;
+                                            }
+                                            
+                                            .more_notes_link:hover {
+                                                text-decoration: none;
+                                            }
+                                            
+                                            .note:hover .more_notes_link::after, .note:hover .more_notes_link::before {
+                                                border-right-color: {color:Contrasting Background and Element Color};
+                                                border-top-color: {color:Contrasting Background and Element Color};
+                                            }
+                                            
+                                            .more_notes_link::after, .more_notes_link::before {
+                                                content: "";
+                                                left: 50%;
+                                                position: absolute;
+                                                border: 6px solid {color:Background and Element Color};
+                                                border-bottom-color: transparent;
+                                                border-left-color: transparent;
+                                                transform: rotate(135deg) skew(20deg, 20deg);
+                                                top: 10px;
+                                                
+                                                -moz-transition: all 100ms ease-in-out;
+                                                -webkit-transition: all 100ms ease-in-out;
+                                                -o-transition: all 100ms ease-in-out;
+                                                -ms-transition: all 100ms ease-in-out;
+                                                transition: all 100ms ease-in-out;
+                                            }
+                                            
+                                            .more_notes_link::after {
+                                                width: 40px;
+                                                height: 40px;
+                                                margin: -3px 0 0 -26px;
+                                            }
+                                            
+                                            .more_notes_link:before {
+                                                width: 20px;
+                                                height: 20px;
+                                                margin: 7px 0 0 -16px;
+                                            }
+                                            
+                                            .notes_loading {
+                                                height: 75px;
+                                                padding: 10px 0;
+                                                font-weight: bold;
+                                                position: relative;
+                                            }
+                                            
+                                            .notes_loading:after, .notes_loading:before {
+                                                content: "";
+                                                position: absolute;
+                                                left: 50%;
+                                                bottom: 10px;
+                                                border-radius: 50%;
+                                                border: 6px solid {color:Background and Element Color};
+                                                -moz-animation: loadingcircles 1s ease-in-out infinite;
+                                                -webkit-animation: loadingcircles 1s ease-in-out infinite;
+                                                -o-animation: loadingcircles 1s ease-in-out infinite;
+                                                animation: loadingcircles 1s ease-in-out infinite;
+                                            }
+                                            
+                                            .note:hover .notes_loading {
+                                                color: {color:Contrasting Background and Element Color};
+                                            }
+                                            
+                                            .note:hover .notes_loading:after {
+                                                border-right-color: {color:Contrasting Background and Element Color};
+                                                border-left-color: {color:Contrasting Background and Element Color};
+                                            }
+                                            
+                                            .note:hover .notes_loading:before {
+                                                border-top-color: {color:Contrasting Background and Element Color};
+                                                border-bottom-color: {color:Contrasting Background and Element Color};
+                                            }
+                                            
+                                            .notes_loading:after {
+                                                border-top-color: transparent;
+                                                border-bottom-color: transparent;
+                                                width: 40px;
+                                                height: 40px;
+                                                margin-left: -26px;
+                                                -moz-animation-direction: normal;
+                                                -webkit-animation-direction: normal;
+                                                -o-animation-direction: normal;
+                                                animation-direction: normal;
+                                            }
+                                            
+                                            .notes_loading:before {
+                                                border-right-color: transparent;
+                                                border-left-color: transparent;
+                                                width: 20px;
+                                                height: 20px;
+                                                margin: 0 0 10px -16px;
+                                                -moz-animation-direction: reverse;
+                                                -webkit-animation-direction: reverse;
+                                                -o-animation-direction: reverse;
+                                                animation-direction: reverse;
+                                            }
+                                            
+                                            @-moz-keyframes loadingcircles {
+                                                from {transform:rotate(0deg);}
+                                                to {transform:rotate(360deg);}
+                                            }
+                                            
+                                            @-webkit-keyframes loadingcircles {
+                                                from {transform:rotate(0deg);}
+                                                to {transform:rotate(360deg);}
+                                            }
+                                            
+                                            @-o-keyframes loadingcircles {
+                                                from {transform:rotate(0deg);}
+                                                to {transform:rotate(360deg);}
+                                            }
+                                           
+                            .disqus-container {
+                                padding: 0 10px 10px;
+                            }
+            
+            #sidebar {
+                width: 29.5858%;
+                max-width: 338px;
+                margin: 0 0 26px;
+                float: left;
+                {block:IfToggleSidebarLeftorRight}float: right;{/block:IfToggleSidebarLeftorRight}
+                position: relative;
+                color: {color:Text Color};
+                font-family: {font:Miscellaneous Font}
+            }
+                
+                #top {
+                    padding: 0 20px 20px;
+                    background: rgb({RGBcolor:Main Blog Color});
+                    background: rgba({RGBcolor:Main Blog Color},{text:Main Blog Color Transparency});
+                }
+                
+                    #top #avatar {
+                        position: relative;
+                        top: -46px;
+                    }
+                    
+                        #top #avatar a {
+                            position: relative;
+                            display: block;
+                            margin: auto;
+                            width: 136px;
+                            height: 136px;
+                        }
+                    
+                        #top #avatar img {
+                            padding: 4px;
+                            {block:IfShowAFrameOnYourAvatar}background: rgb({RGBcolor:Avatar Background Color});{/block:IfShowAFrameOnYourAvatar}
+                            {block:IfShowAFrameOnYourAvatar}border: 4px solid {color:Background and Element Color};{/block:IfShowAFrameOnYourAvatar}
+                            {block:IfShowAFrameOnYourAvatar}padding: 0;{/block:IfShowAFrameOnYourAvatar}
+                        }
+                    
+                        #top #pages a.page {
+                            display: block;
+                            border: 1px solid {color:Background and Element Color};
+                            text-align: center;
+                        }
+                        
+                        #top #pages a.page:hover {
+                            background: {color:Background and Element Color};
+                            color: {color:Contrasting Background and Element Color};
+                            border: 1px groove {color:Contrasting Background and Element Color};
+                        }
+                        
+                    #description {
+                        font-size: 0.75em;
+                        position: relative;
+                        top: -18px;
+                    }
+                    
+                        #description a {
+                            color: {color:Background and Element Color};
+                            text-decoration: underline;
+                        }
+                    
+                    .heading {
+                        font-family: {font:Title Font};
+                        font-size: 1em;
+                        color: {color:Header Text Color};
+                        background-color: rgb({RGBcolor:Secondary Blog Color});
+                        background-color: rgba({RGBcolor:Secondary Blog Color},{text:Secondary Blog Color Transparency});
+                        margin-top: 20px;
+                        padding: 10px;
+                        font-weight: bold;
+                        
+                        -moz-transition: all 100ms ease-in-out;
+                        -webkit-transition: all 100ms ease-in-out;
+                        -o-transition: all 100ms ease-in-out;
+                        -ms-transition: all 100ms ease-in-out;
+                        transition: all 100ms ease-in-out;
+                    }
+                    
+                        #top a .heading {
+                            text-decoration: none;
+                        }
+                    
+                    .heading#patreon:hover,
+                    .heading#youtube-outter:hover,
+                    .heading#deviantart-outter:hover {
+                        background-color: {color:Background and Element Color};
+                        color: {color:Contrasting Background and Element Color};
+                        border: 1px groove {color:Contrasting Background and Element Color};
+                    }
+                    
+                    .heading#youtube-outter,
+                    .heading#deviantart-outter,
+                    .heading#patreon {
+                        background-position: left;
+                        background-repeat: no-repeat;
+                    }
+                    
+                    .heading#youtube-outter:hover #youtube-inner,
+                    .heading#deviantart-outter:hover #deviantart-inner {
+                        color: {color:Contrasting Background and Element Color};
+                    }
+                    
+                    .heading#patreon {
+                        border: 1px solid {color:Background and Element Color};
+                        padding: 20px 10px;
+                        background-image: url('https://static.tumblr.com/rmgiuso/jjDndtzlu/patreon-44c.png');
+                        background-position: center;
+                        text-indent: -9999px;
+                    }
+                    
+                    .heading#youtube-inner,
+                    #deviantart-inner {
+                        width: 145px;
+                        margin: 0 0 0 35px;
+                        background: none;
+                        text-align: left;
+                        text-transform: capitalize;
+                        word-wrap: break-word;
+                    }
+                    
+                    .heading#youtube-outter {
+                        border: 1px solid {color:Background and Element Color};
+                        background-image: url('https://static.tumblr.com/rmgiuso/HKzndtznk/youtube-44c.png');
+                    }
+                    
+                    .heading#deviantart-outter {
+                        border: 1px solid {color:Background and Element Color};
+                        background-image: url('https://static.tumblr.com/rmgiuso/JO5ndtzod/deviantart-44c.png');
+                    }
+                    
+                    .content {
+                        padding: 7px 10px;
+                        color: #666;
+                        font-size: 11px;
+                        overflow: hidden;
+                        background: rgb({RGBcolor:Secondary Blog Color});
+                        background: rgba({RGBcolor:Secondary Blog Color},{text:Secondary Blog Color Transparency});
+                    }
+                    
+                        #top a {
+                            text-decoration: none;
+                        }
+                        
+                        .boxarrow {
+                            width: 30px;
+                            height: 30px;
+		                    transform: rotate(315deg) skew(20deg, 20deg);
+		                    margin: auto;
+                        }
+                        
+                        .boxarrow-down{block:IfShowFollowingCollapsed}, 
+                        .boxarrow1{/block:IfShowFollowingCollapsed}{block:IfShowTweetsCollapsed}, 
+                        .boxarrow2{/block:IfShowTweetsCollapsed}{block:IfShowLikesCollapsed}, 
+                        .boxarrow3{/block:IfShowLikesCollapsed} {
+                            transform: rotate(135deg) skew(20deg, 20deg);
+                        }
+                        
+                            .like_video_overlay{block:IfShowFollowingCollapsed}, 
+                            #following-avatars{/block:IfShowFollowingCollapsed}{block:IfShowTweetsCollapsed}, 
+                            .sidebartweets{/block:IfShowTweetsCollapsed}{block:IfShowLikesCollapsed}, 
+                            .sidebarlikes{/block:IfShowLikesCollapsed} {
+                                display: none;
+                            }
+                        
+                        .boxarrow-up {
+                            transform: rotate(315deg) skew(20deg, 20deg);
+                        }
+                        
+                        
+                            .boxarrow::after, .boxarrow::before {
+                                content: "";
+                                position: absolute;
+                                border: 6px solid {color:Background and Element Color};
+                                border-bottom-color: transparent;
+                                border-left-color: transparent;
+                                
+                                -moz-transition: all 100ms ease-in-out;
+                                -webkit-transition: all 100ms ease-in-out;
+                                -o-transition: all 100ms ease-in-out;
+                                -ms-transition: all 100ms ease-in-out;
+                                transition: all 100ms ease-in-out;
+                            }
+                            
+                            .boxarrow::after {
+                                width: 40px;
+                                height: 40px;
+		                        left: -22px;
+                            }
+                            
+                            .boxarrow:before {
+                                width: 20px;
+                                height: 20px;
+		                        margin-top: 10px;
+		                        left: -12px;
+                            }
+                        
+                        #following-avatars.content {
+                            padding: 4px;
+                            border: 1px solid {color:Background and Element Color};
+                            text-align: center;
+                        }
+                        
+                        #following-avatars.content a {
+                            display: inline-block;
+                        }
+                    
+                                #following-avatars.content a img {
+                                    margin: 4px;
+                                    bottom: 0;
+                                    width: 30px;
+                                    height: 30px;
+                                    border: 1px solid {color:Background and Element Color};
+                                    
+                                    -moz-border-radius: 4px;
+                                    -webkit-border-radius: 4px;
+                                    border-radius: 4px;
+                                    
+                                    -moz-transition: all 100ms linear;
+                                    -webkit-transition: all 100ms linear;
+                                    -o-transition: all 100ms linear;
+                                    -ms-transition: all 100ms linear;
+                                    transition: all 100ms linear;
+                                }
+                                
+                                #following-avatars.content a:hover img {
+                                    position: relative;
+                                    bottom: 5px;
+                                    background: {color:Background and Element Color};
+                                    border: 1px solid {color:Contrasting Background and Element Color};
+                                    
+                                    -moz-box-shadow: 4px 4px 5px 0 rgba(0,0,0,0.5);
+                                    -webkit-box-shadow: 4px 4px 5px 0 rgba(0,0,0,0.5);
+                                    box-shadow: 4px 4px 5px 0 rgba(0,0,0,0.5);
+                                }
+                                
+                                #following-avatars.content a:active img {
+                                    -moz-transition-duration: 20ms;
+                                    -webkit-transition-duration: 20ms;
+                                    -o-transition-duration: 20ms;
+                                    -ms-transition-duration: 20ms;
+                                    transition-duration: 20ms;
+                                    
+                                    position: relative;
+                                    bottom: 3px;
+                                    background: {color:Background and Element Color};
+                                    border: 1px solid {color:Contrasting Background and Element Color};
+                                    
+                                    -moz-box-shadow: 2px 2px 5px 0 rgba(0,0,0,0.5);
+                                    -webkit-box-shadow: 2px 2px 5px 0 rgba(0,0,0,0.5);
+                                    box-shadow: 2px 2px 5px 0 rgba(0,0,0,0.5);
+                                }
+                        
+                        .sidelist {
+                            margin: 0;
+                            max-width: 100%;
+                            padding: 3px;
+                            overflow: hidden;
+                            border: 1px solid {color:Background and Element Color};
+                            background: rgb({RGBcolor:Secondary Blog Color});
+                            background: rgba({RGBcolor:Secondary Blog Color},{text:Secondary Blog Color Transparency});
+                        }
+                        
+                        #tweets {
+                            text-align: center;
+                        }
+                        
+                        #likes a {
+                            font-weight: bold;
+                        }
+                        
+                        .sidelist ul,
+                        #likes a img {
+                            margin: 0;
+                            padding: 0;
+                            max-width: 100%;
+                            overflow: hidden;
+                        }
+                        
+                            #likes > li,
+                            #likes strong,
+                            .post_info_bottom,
+                            .tweet a {
+                                -moz-border-radius: 4px;
+                                -webkit-border-radius: 4px;
+                                border-radius: 4px;
+                            }
+                            
+                            .sidelist > ul > li,
+                            .sidelist > ul > li a,
+                            #likes > li blockquote {
+                                -moz-transition: all 100ms ease-in-out;
+                                -webkit-transition: all 100ms ease-in-out;
+                                -o-transition: all 100ms ease-in-out;
+                                -ms-transition: all 100ms ease-in-out;
+                                transition: all 100ms ease-in-out;
+                            }
+                            
+                            #likes > li strong,
+                            .post_info_bottom {
+                                -moz-transition: border 100ms ease-in-out;
+                                -webkit-transition: border 100ms ease-in-out;
+                                -o-transition: border 100ms ease-in-out;
+                                -ms-transition: border 100ms ease-in-out;
+                                transition: border 100ms ease-in-out;
+                            }
+                            
+                            #likes > li,
+                            .tweet a {
+                                margin: 5px 0;
+                                color: {color:Text Color};
+                                border: solid 1px {color:Background and Element Color};
+                            }
+                            
+                            #likes > li {
+                                border-bottom: solid 4px {color:Background and Element Color};
+                                border-top: solid 4px {color:Background and Element Color};
+                            }
+                            
+                            #likes > li:hover,
+                            .tweet a:hover {
+                                background: {color:Background and Element Color};
+                                color: {color:Contrasting Background and Element Color};
+                            }
+                            
+                                .sidelist > ul > li a, 
+                                #likes > li blockquote {
+                                    color: {color:Text Color};
+                                }
+                                
+                                    #likes > li:hover blockquote {
+                                        border-left: solid 4px {color:Contrasting Background and Element Color};
+                                        color: {color:Contrasting Background and Element Color};
+                                    }
+                            
+                                    .sidelist > ul > li:hover a {
+                                        color: {color:Contrasting Background and Element Color};
+                                    }
+                                    
+                                        #likes > li a:hover,
+                                        #tweets > li a:hover {
+                                            text-decoration: underline;
+                                        }
+                            
+                            #likes img {
+                                width: 100%;
+                                margin: 0;
+                            }
+                            
+                            #likes pre {
+                                word-wrap: break-word;
+                                white-space: -moz-pre-wrap;
+                                white-space: -pre-wrap;
+                                white-space: -o-pre-wrap;
+                                white-space: pre-wrap;
+                            }
+                            
+                            #likes blockquote {
+                                margin: 10px 0 10px 3px;
+                                padding-left: 7px;
+                                border-left: solid 4px {color:Background and Element Color};
+                            }
+                            
+                            #likes strong {
+                                display: inline-block;
+                                padding: 2px;
+                                font-weight: inherit;
+                                border: 1px solid {color:Background and Element Color};
+                            }
+                        
+                        .like_post,
+                        .tweet a {
+                            padding: 2px;
+                        }
+                        
+                        .like_post,
+                        .tweet {
+                            max-width: 100%;
+                            font-size: 0.75em;
+                        }
+                        
+                        .tweet a {
+                            display: block;
+                        }
+                        
+                            .post_info_bottom {
+                                display: block !important;
+                                text-align: center;
+                                border: 1px solid {color:Background and Element Color};
+                            }
+                            
+                                #likes > li:hover .post_info_bottom,
+                                #likes > li:hover strong {
+                                    border: 1px solid {color:Contrasting Background and Element Color};
+                                }
+                        
+                        .top-button {
+                            font-weight: normal;
+                            padding: 18px;
+                            
+                            -moz-border-radius: 4px 4px 0 0;
+                            -webkit-border-radius: 4px 4px 0 0;
+                            border-radius: 4px 4px 0 0;
+                        }
+                        
+                            .top-button:hover .boxarrow:before, .top-button:hover .boxarrow:after {
+                                border-right-color: {color:Contrasting Background and Element Color};
+                                border-top-color: {color:Contrasting Background and Element Color};
+                            }
+                        
+                        .bottom-button {
+                            margin: 0;
+                            padding: 10px;
+                            
+                            -moz-border-radius: 0 0 4px 4px;
+                            -webkit-border-radius: 0 0 4px 4px;
+                            border-radius: 0 0 4px 4px;
+                        }
+                        
+                        .top-button,
+                        .bottom-button {
+                            display: block;
+                            text-align: center;
+                            border: 1px solid {color:Background and Element Color};
+                        }
+                        
+                            .top-button:hover,
+                            .bottom-button:hover {
+                                background: {color:Background and Element Color};
+                                color: {color:Contrasting Background and Element Color};
+                                border: 1px groove {color:Contrasting Background and Element Color};
+                            }
+                                
+                        #buttons {
+                            margin: 20px 0 0 0;
+                            width: 100%;
+                            border-spacing: 0px;
+                        }
+                        
+                            .button {
+                                text-align: center;
+                                border: 1px solid {color:Background and Element Color};
+                                padding: 0;
+                                background: rgb({RGBcolor:Secondary Blog Color});
+                                background: rgba({RGBcolor:Secondary Blog Color},{text:Secondary Blog Color Transparency});
+                                
+                                -moz-transition: all 100ms ease-in-out;
+                                -webkit-transition: all 100ms ease-in-out;
+                                -o-transition: all 100ms ease-in-out;
+                                -ms-transition: all 100ms ease-in-out;
+                                transition: all 100ms ease-in-out;
+                            }
+                            
+                                #buttons a {
+                                    background: none;
+                                    display: block;
+                                    width: 100%;
+                                    margin: 0;
+                                    padding: 10px 0;
+                                }
+                            
+                            .button#button-rss {
+                                width: 50%;
+                                -moz-border-radius: 4px 0 0 0;
+                                -webkit-border-radius: 4px 0 0 0;
+                                border-radius: 4px 0 0 0;
+                            }
+                            
+                            .button#button-random {
+                                width: 50%;
+                                -moz-border-radius: 0 4px 0 0;
+                                -webkit-border-radius: 0 4px 0 0;
+                                border-radius: 0 4px 0 0;
+                            }
+                            
+                            .button#button-archive {
+                                -moz-border-radius: 0 0 4px 4px;
+                                -webkit-border-radius: 0 0 4px 4px;
+                                border-radius: 0 0 4px 4px;
+                            }
+                
+                            .button#button-rss:hover,
+                            .button#button-random:hover,
+                            .button#button-archive:hover {
+                                background: {color:Background and Element Color};
+                                border: 1px groove {color:Contrasting Background and Element Color};
+                            }
+                            
+                            .button#button-rss:hover a,
+                            .button#button-random:hover a,
+                            .button#button-archive:hover a {
+                                color: {color:Contrasting Background and Element Color};
+                            }
+                
+                    #copyright {
+                        text-align: center;
+                        color: {color:Header Text Color};
+                        font-size: 0.75em;
+                        padding: 5px 0;
+                        background: rgb({RGBcolor:Main Blog Color});
+                        background: rgba({RGBcolor:Main Blog Color},{text:Main Blog Color Transparency});
+                        margin: 25px 0;
+                    }
+                    
+                        #copyright a {
+                            color: {color:Header Text Color};
+                        }
+                        
+                        #copyright p {
+                            margin: 0;
+                        }
+    
+    </style>
+    <!--[if lt IE 8]>
+        <style type="text/css">
+            a {
+                cursor: pointer;
+            }
+            
+            .footer {
+                background: transparent;
+                color: #000;
+            }
+            
+            .audio {
+                float: none;
+                background: transparent;
+            }
+            
+            .notes {
+                padding: 0;
+                margin: 0;
+            }
+            
+            .navigation a,
+            .footer,
+            .heading#patreon,
+            #following-avatars.content a,
+            #following-avatars.content a div {
+                display: inline-block;
+            }
+            
+            .current_page {
+                display: inline;
+                width: 50px;
+            }
+            
+            .arrow,
+            .wall,
+            .inner_asker span:first-child {
+                display: none !important;
+            }
+            
+            .submit {
+                padding: 0;
+            }
+            
+            .ask_container div {
+                position: static;
+            }
+        </style>
+    <![endif]-->
+    <!--[if IE]>
+        <style type="text/css">
+            #search-scope input,
+            #search-scope label {
+                margin: 0 !important;
+            }
+        </style>
+    <![endif]-->
+    <style type="text/css">{CustomCSS}</style>
+</head>
+<body>
+    <table id="top_bar" class="global_transition">
+    <tr>
+        <td id="top_avatar"><a href="/" title="{Title}"><img src="{PortraitURL-64}" class="global_transition"></a></td>
+        <td id="top_pages">
+            {block:AskEnabled}<a href="/ask" class="page global_transition containing_box">{AskLabel}</a>{/block:AskEnabled}
+            {block:SubmissionsEnabled}<a href="/submit" class="page global_transition containing_box">{SubmitLabel}</a>{/block:SubmissionsEnabled}
+            <div class="clear"></div>
+        </td>
+        <td id="top_search_bar">
+            <form action="" method="get" id="search_form" class="search containing_box global_transition">
+                <input type="hidden" name="t" value="{Name}">
+                <input type="hidden" name="scope" value="all_of_tumblr">
+                <!--[if IE]>
+                <input type="text" name="q" class="query" value="{lang:Search} {Title}">
+                <script>
+                    function searchScope() {
+                        var checkBox = document.getElementById("search-scope");
+                        if(checkBox.checked == true) {
+                            $(".query").attr('value',"{lang:Search} {lang:All of Tumblr}");
+                            document.getElementById('search_form').action='https://www.tumblr.com/search';
+                        } else {
+                            $(".query").attr('value',"{lang:Search} {Title}");
+                            document.getElementById('search_form').action='/search';
+                        }
+                    }
+                </script>
+                <![endif]-->
+                <!--[if !IE]><!-->
+                <input type="text" name="q" class="query" placeholder="{lang:Search} {Title}">
+                <script>
+                    function searchScope() {
+                        var checkBox = document.getElementById("search-scope");
+                        if(checkBox.checked == true) {
+                            $(".query").attr('placeholder',"{lang:Search} {lang:All of Tumblr}");
+                            document.getElementById('search_form').action='https://www.tumblr.com/search';
+                        } else {
+                            $(".query").attr('placeholder',"{lang:Search} {Title}");
+                            document.getElementById('search_form').action='/search';
+                        }
+                    }
+                </script>
+                <!--<![endif]-->
+                <input type="submit" value="{lang:Search}" class="submit global_transition">
+            </form>
+        </td>
+        <td id="top_search_scope">
+            <input type="checkbox" id="search-scope" onclick="searchScope()"><label class="no_select" for="search-scope"> <span>{lang:All of Tumblr}</span></label>
+        </td>
+    </tr>
+    </table>
+    <div id="wrapper">
+        <div id="title" {block:IfToggleBlogTitleBackground}{block:ifShowMainHeaderText}class="title_frame global_transition large_containing_box"{/block:ifShowMainHeaderText}{/block:IfToggleBlogTitleBackground}>
+            <a href="/" class="global_transition">
+                <img src="{image:Header Image}">
+                {block:ifShowMainHeaderText}{Title}{/block:ifShowMainHeaderText}
+            </a>
+        </div>
+        
+        <div id="content">
+            {block:SearchPage}
+                {block:SearchResults}
+                    <div class="navigation">
+                        <em>{lang:SearchResultCount results for SearchQuery 2}</em>
+                    </div>
+                {block:IfEnableJumpPagination}
+                    <div class="navigation">
+                        <em>{lang:Page CurrentPage of TotalPages}</em>
+                    </div>
+                {/block:IfEnableJumpPagination}
+                {/block:SearchResults}
+                
+                {block:NoSearchResults}
+                    <div class="navigation">
+                        <em>{lang:No search results for SearchQuery 2}</em>
+                    </div>
+                {/block:NoSearchResults}
+            {/block:SearchPage}
+            
+            {block:TagPage}
+                <div class="navigation">
+                    <em>{lang:TagResultCount posts tagged Tag 2}</em>
+                </div>
+                
+            {block:IfEnableJumpPagination}
+                <div class="navigation">
+                    <em>{lang:Page CurrentPage of TotalPages}</em>
+                </div>
+            {/block:IfEnableJumpPagination}
+            {/block:TagPage}
+        
+            {block:ifShowTopNavigationBar}
+            {block:Pagination}
+                <div id="top_navbuttons" class="navigation">
+                    {block:PreviousPage}
+                        <a href="{PreviousPage}/../1"><div class="navblock navbuttons first-nav outter_navbuttons"><div class="wall"></div><div class="arrow"></div>First</div></a>
+                        <a href="{PreviousPage}"><div class="navblock navbuttons previous-nav inner_navbuttons"><div class="arrow"></div>{lang:Previous}</div></a>
+                    {/block:PreviousPage}
+                    {block:NextPage}
+                        <a href="{NextPage}"><div class="navblock navbuttons next-nav inner_navbuttons">{lang:Next page}<div class="arrow"></div></div></a>
+                        <a href="{NextPage}/../{TotalPages}"><div class="navblock navbuttons last-nav outter_navbuttons">Last<div class="arrow"></div><div class="wall"></div></div></a>
+                    {/block:NextPage}
+                </div>
+                
+                <div id="top_jump_pagination" {block:IfEnableJumpPagination}class="navigation"{/block:IfEnableJumpPagination}>
+                
+                {block:IfEnableJumpPagination}
+                    {block:JumpPagination length="7"}
+                            {block:CurrentPage}
+                                    <!--[if IE]>
+                                    <input type="text" value="{PageNumber}" class="navblock current_page">
+                                    <![endif]-->
+                                    <!--[if !IE]><!-->
+                                    <input type="text" placeholder="{PageNumber}" class="navblock current_page">
+                                    <!--<![endif]-->
+                            {/block:CurrentPage}
+                            
+                            {block:JumpPage}
+                                <a href="{URL}"><div class="navblock navbuttons jump_page">{PageNumber}</div></a>
+                            {/block:JumpPage}
+                            
+                        {/block:JumpPagination}
+                    {/block:IfEnableJumpPagination}
+                </div>
+            {/block:Pagination}
+            {/block:ifShowTopNavigationBar}
+
+            {block:Posts}
+                <div class="post large_containing_box">
+                    
+                    {block:Photo}
+                        <div class="media">{LinkOpenTag}<img src="{PhotoURL-1280}" alt="{PhotoAlt}">{LinkCloseTag}</div>
+                        {block:Caption}<div class="copy">{Caption}</div>{/block:Caption}
+                    {/block:Photo}
+                    
+                    {block:Panorama}
+                        <div class="media">{LinkOpenTag}<img src="{PhotoURL-Panorama}" alt="{PhotoAlt}">{LinkCloseTag}</div>
+                        {block:Caption}<div class="copy">{Caption}</div>{/block:Caption}
+                    {/block:Panorama}
+                    
+                    {block:Photoset}
+                        <div class="media">{Photoset}</div>
+                        {block:Caption}<div class="copy">{Caption}</div>{/block:Caption}
+                    {/block:Photoset}
+                    
+                    {block:Video}
+                        <div class="media"><div class="video_player">{Video-700}</div></div>
+                        {block:Caption}<div class="copy">{Caption}</div>{/block:Caption}
+                    {/block:Video}
+                    
+                    {block:Audio}
+                        {block:IfShowAlbumArtOnAudioPosts}
+                            {block:AlbumArt}
+                                <div class="album_art">
+                                    <img src="{AlbumArtURL}" alt="{block:Artist}{Artist}{/block:Artist}{block:TrackName} - {TrackName}{/block:TrackName}" style="margin-bottom:10px;">
+                                </div>
+                            {/block:AlbumArt}
+                        {/block:IfShowAlbumArtOnAudioPosts}
+                        
+                        <div class="audio">
+                            <div class="player">{AudioPlayerWhite}</div>
+                            <div class="meta">{PlayCountWithLabel}{block:ExternalAudio}<span class="download_external_audio"> &bull; <a href="{ExternalAudioURL}">{lang:Download}</a></span>{/block:ExternalAudio}</div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="clear"></div>
+                        {block:Caption}<div class="copy">{Caption}</div>{/block:Caption}
+                    {/block:Audio}
+                    
+                    {block:Quote}
+                        <div class="quote {Length}">&ldquo;{Quote}&rdquo;</div>
+                        <div class="copy">
+                            {block:Source}
+                                <div class="lower_quote"><div class="quote_dash">&mdash;&nbsp;</div><div class="quote_source">{Source}</div></div>
+                            {/block:Source}
+                        </div>
+                    {/block:Quote}
+                        
+                    {block:Text}
+                        {block:Title}<div class="title">{Title}</div>{/block:Title}
+                        <div class="copy">{Body}</div>
+                    {/block:Text}
+                    
+                    {block:Answer}
+                        <div class="question ask global_transition">
+                            <div class="nipple nipple-asker global_transition"></div>
+                            {Question}
+                        </div>
+                        <div class="ask_container asker global_transition">
+                            <div class="inner_asker global_transition" dir="rtl"><span>{Asker}</span><span class="asker_span">{Asker}</span><img class="ask_image asker_image global_transition" src="{AskerPortraitURL-64}"></div>
+                        </div>
+                        {block:Answerer}
+                        <div class="ask_container answerer global_transition">
+                            <div class="inner_answerer global_transition"><span>{Answerer}</span><span class="answerer_span">{Answerer}</span><img class="ask_image answerer_image global_transition" src="{AnswererPortraitURL-64}"></div>
+                        </div>
+                        <div class="clear"></div>
+                        
+                        <div class="question answer global_transition">
+                            <div class="nipple nipple-answerer global_transition"></div>
+                            {Answer}
+                        </div>
+                    {/block:Answerer}
+                        <div class="clear"></div>
+                        <div class="copy question_copy">{Replies}</div>
+                    {/block:Answer}
+                    
+                    
+                    {block:Chat}
+                        {block:Title}<div class="title">{Title}</div>{/block:Title}
+                        <div class="outter_chat global_transition">
+                            <div class="chat global_transition">
+                                <div class="lines">
+                                    {block:Lines}
+                                        <div class="line {Alt} global_transition">{block:Label}<strong>{Label}</strong>{/block:Label} {Line}</div>
+                                    {/block:Lines}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                        <div style="height:10px;"></div>
+                    {/block:Chat}
+                    
+                    {block:Link}
+                        <div class="link"><a href="{URL}" {Target}><table cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td class="link_text {block:Thumbnail}link_text_image{/block:Thumbnail} global_transition"><span>{Name} &raquo;</span></td>
+                                {block:Thumbnail}<td class="link_image global_transition"><img src="{Thumbnail}"></td>{/block:Thumbnail}
+                            </tr>
+                        </table></a></div>
+                        {block:Description}<div class="copy">{Description}</div>{/block:Description}
+                    {/block:Link}
+                    
+                    {block:Date}
+                        <div class="footer global_transition">
+                            <div class="like_and_reblog_buttons">{ReblogButton color="white"}</div>
+                            <div class="like_and_reblog_buttons">{LikeButton color="white"}</div>
+                            <div class="info_box">
+                                {block:Reblog}
+                                    {lang:Reblogged TimeAgo from ReblogParentName 2}
+                                {/block:Reblog}
+                                {block:NotReblog}
+                                    <a href="{Permalink}">{lang:Posted TimeAgo from source}</a>
+                                {/block:NotReblog}
+                            </div>
+                            {block:RebloggedFromReblog}
+                                <div class="info_box">{lang:Originally from ReblogRootName 2}</div>
+                            {/block:RebloggedFromReblog}
+                            {block:ContentSource}
+                                <div class="info_box">{lang:Source}: <a href="{SourceURL}">{SourceTitle}</a></div>
+                            {/block:ContentSource}
+                            <div class="info_box tag_box global_transition" style="display:none; {block:IfShowTags}{block:HasTags}display:block;{/block:HasTags}{/block:IfShowTags}">
+                            {block:IfShowTags}
+                                {block:HasTags}<div class="tagged global_transition">{lang:Tagged}:&nbsp;</div><div class="tags global_transition">{block:Tags}<a href="{TagURL}">{Tag}</a><span class="tag-commas global_transition">, </span>{/block:Tags}.</div>{/block:HasTags}
+                            {/block:IfShowTags}
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                        {block:NoteCount}
+                            <div class="footer global_transition">
+                                <div class="permalink"><a href="{Permalink}">{NoteCountWithLabel}</a></div>
+                                {block:IfDisqusShortname}<div class="permalink"><a href="{Permalink}#disqus_thread">{lang:View comments}</a></div>{/block:IfDisqusShortname}
+                            </div>
+                        {/block:NoteCount}
+                    {/block:Date}
+                    
+                    {block:PostNotes}<div class="notecontainer">{PostNotes-64}</div>{/block:PostNotes}
+                    
+                    {block:IfDisqusShortname}
+                        {block:Permalink}
+                            <div class="disqus-container notecontainer">
+                                <div id="disqus_thread"></div>
+                                <script type="text/javascript" src="https://disqus.com/forums/{text:Disqus Shortname}/embed.js"></script>
+                                <noscript><a href="https://{text:Disqus Shortname}.disqus.com/?url=ref">{lang:View the discussion thread}</a></noscript>
+                            </div>
+                        {/block:Permalink}
+                    {/block:IfDisqusShortname}
+                    
+                </div>
+            {/block:Posts}
+            
+            {block:Pagination}
+                <div id="jump_pagination" {block:IfEnableJumpPagination}class="navigation"{/block:IfEnableJumpPagination}>
+                
+                {block:IfEnableJumpPagination}
+                    {block:JumpPagination length="7"}
+                            {block:CurrentPage}
+                                <!--[if IE]>
+                                <input type="text" value="{PageNumber}" class="navblock current_page">
+                                <![endif]-->
+                                <!--[if !IE]><!-->
+                                <input type="text" placeholder="{PageNumber}" class="navblock current_page">
+                                <!--<![endif]-->
+                            {/block:CurrentPage}
+                            
+                            {block:JumpPage}
+                                <a href="{URL}"><div class="navblock navbuttons jump_page">{PageNumber}</div></a>
+                            {/block:JumpPage}
+                            
+                        {/block:JumpPagination}
+                    {/block:IfEnableJumpPagination}
+                    
+                </div>
+                
+                {block:TagPage}
+                    <div class="navigation">
+                        <em>{lang:Posts tagged Tag 2}</em>
+                    </div>
+                {/block:TagPage}
+                
+                {block:SearchPage}
+                    {block:SearchResults}
+                        <div class="navigation">
+                            <em>{lang:Search results for SearchQuery 2}</em>
+                        </div>
+                    {/block:SearchResults}
+                {/block:SearchPage}
+                
+                <div id="navbuttons" class="navigation">
+                    {block:PreviousPage}
+                        <a href="{PreviousPage}/../1"><div class="navblock navbuttons first-nav outter_navbuttons"><div class="wall"></div><div class="arrow"></div>First</div></a>
+                        <a href="{PreviousPage}"><div class="navblock navbuttons previous-nav inner_navbuttons"><div class="arrow"></div>{lang:Previous}</div></a>
+                        <script>
+                            $('.current_page').on("keydown",function(e) {
+                                if(e.keyCode == 13) {
+                                $(location).attr('href',"{PreviousPage}/../"+$(this).val());
+                                }
+                            });
+                        </script>
+                    {/block:PreviousPage}
+                    {block:NextPage}
+                        <a href="{NextPage}"><div class="navblock navbuttons next-nav inner_navbuttons">{lang:Next page}<div class="arrow"></div></div></a>
+                        <a href="{NextPage}/../{TotalPages}"><div class="navblock navbuttons last-nav outter_navbuttons">Last<div class="arrow"></div><div class="wall"></div></div></a>
+                        <script>
+                            $('.current_page').on("keydown",function(e) {
+                                if(e.keyCode == 13) {
+                                $(location).attr('href',"{NextPage}/../"+$(this).val());
+                                }
+                            });
+                        </script>
+                    {/block:NextPage}
+                </div>
+            {/block:Pagination}
+            
+        </div>
+        
+        <div id="sidebar">
+            <div id="top" class="large_containing_box">
+                <div id="avatar"><a href="/"><img src="{PortraitURL-128}"></a></div>
+                <div id="description">{Description}</div>
+                
+                {block:HasPages}
+                    <div id="pages">
+                        {block:Pages}<a href="{URL}" class="page heading containing_box">{Label}</a>{/block:Pages}
+                    </div>
+                {/block:HasPages}
+                
+                {block:IfEnablePatreonSupport}<a href="https://www.patreon.com/{text:Patreon Username}"><div class="heading containing_box" id="patreon">Patreon</div></a>{/block:IfEnablePatreonSupport}
+                {block:IfEnableYoutubeSupport}<a href="https://www.youtube.com/user/{text:Youtube Username}"><div class="heading containing_box" id="youtube-outter"><div class="heading" id="youtube-inner">{text:Youtube Username}</div></div></a>{/block:IfEnableYoutubeSupport}
+                {block:IfEnableDeviantartSupport}<a href="https://{text:Deviantart Username}.deviantart.com/"><div class="heading containing_box" id="deviantart-outter"><div class="heading" id="deviantart-inner">{text:Deviantart Username}</div></div></a>{/block:IfEnableDeviantartSupport}
+                
+                {block:IfShowPeopleIFollow}
+                    {block:Following}
+                        <div class="containing_box">
+                            <div class="heading top-button no_select" id="following">{lang:Following}<div class="boxarrow boxarrow1"></div></div>
+                            <div class="content" id="following-avatars">
+                                {block:Followed}<a href="{FollowedURL}" title="{FollowedName}"><img src="{FollowedPortraitURL-64}"></a>{/block:Followed}
+                            </div>
+                            <a href="https://www.tumblr.com/follow/{Name}" class="heading bottom-button" id="following-end">{lang:Follow on Tumblr}</a>
+                        </div>
+                    {/block:Following}
+                {/block:IfShowPeopleIFollow}
+                
+                {block:IfShowTweetsInSidebar}
+                    {block:Twitter}
+                        <div class="containing_box">
+                            <div class="heading top-button no_select" id="sidebartweetsheader">{lang:Latest Tweets}<div class="boxarrow boxarrow2"></div></div>
+                            <div class="sidebartweets sidelist"><ul id="tweets"></ul></div>
+                            <script type="text/javascript">
+                                function recent_tweets(data) {for(i = 0; i < data.length; i++) {
+                                        document.getElementById("tweets").innerHTML = document.getElementById("tweets").innerHTML + '<li class="tweet"><a href="https://twitter.com/{TwitterUsername}/status/' + (data[i].id_str ? data[i].id_str : data[i].id) + '">' + data[i].text + '</a></li>';
+                                    }
+                                }
+                            </script>
+                            <a href="https://twitter.com/{TwitterUsername}" class="heading bottom-button" id="twitter-end">{lang:Follow on Twitter}</a>
+                        </div>
+                    {/block:Twitter}
+                {/block:IfShowTweetsInSidebar}
+                
+                {block:IfShowLikesInSidebar}
+                    {block:Likes}
+                        <div class="containing_box">
+                            <div class="heading top-button no_select" id="sidebarlikesheader">{lang:Likes}<div class="boxarrow boxarrow3"></div></div>
+                            <div class="sidebarlikes sidelist">{Likes limit="10" summarize="100" width="200"}</div>
+                            <a href="https://www.tumblr.com/liked/by/{Name}" class="heading bottom-button" id="likes-end">{lang:More liked posts}</a>
+                        </div>
+                    {/block:Likes}
+                {/block:IfShowLikesInSidebar}
+                
+                <table id="buttons" class="containing_box">
+                    <tbody>
+                        <tr class="row_1">
+                            <td class="button" id="button-rss"><a href="{RSS}" class="heading">{lang:RSS feed}</a></td>
+                            <td class="button" id="button-random"><a href="/random" class="heading">{lang:Random}</a></td>
+                        </tr>
+                        <tr class="row_2">
+                            <td class="button" id="button-archive" colspan="2"><a href="/archive" class="heading">{lang:Archive}</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div id="copyright" class="large_containing_box">&copy; {CopyrightYears} <a href="https://www.tumblr.com">{lang:Powered by Tumblr}</a>
+            <p>
+            Navigator Theme by <a href="https://amazingmrx.tumblr.com">Amazing Mr. X</a>
+            </div>
+        </div>
+        
+        <div class="clear"></div>
+    </div>
+    
+    {block:Twitter}
+        <script type="text/javascript" src="/tweets.js"></script>
+    {/block:Twitter}
+    
+    {block:IfDisqusShortname}
+        <script type="text/javascript">
+            //<![CDATA[
+            (function() {
+                var links = document.getElementsByTagName('a');
+                var query = '?';
+                for(var i = 0; i < links.length; i++) {
+                    if(links[i].href.indexOf('#disqus_thread') >= 0) {
+                        query += 'url' + i + '=' + encodeURIComponent(links[i].href) + '&';
+                    }
+                }
+                document.write('<script charset="utf-8" type="text/javascript" src="https://disqus.com/forums/{text:Disqus Shortname}/get_num_replies.js' + query + '"></' + 'script>');
+            })();
+            //]]>
+        </script>
+    {/block:IfDisqusShortname}
+    
+    
+</body>
+</html>
